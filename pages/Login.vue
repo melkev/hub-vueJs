@@ -12,7 +12,9 @@
             <form>
               <div class="field">
                 <div class="control">
-                  <input class="input is-large"
+                  <input 
+                  v-model="form.email"
+                  class="input is-large"
                          type="email"
                          placeholder="Your Email"
                          autofocus=""
@@ -26,6 +28,7 @@
               <div class="field">
                 <div class="control">
                   <input
+                  v-model="form.password"
                     class="input is-large"
                     type="password"
                     placeholder="Your Password"
@@ -37,7 +40,7 @@
               </div>
               <!-- Login Button -->
               <button
-                @click.prevent="() => {}"
+                @click.prevent="login"
                 class="button is-block is-info is-large is-fullwidth">
                 Login
               </button>
@@ -54,6 +57,27 @@
     </div>
   </section>
 </template>
+
+
+<script>
+export default{
+  data(){
+    return {
+      form: {
+        email: null,
+        password: null
+      },
+    }
+  },
+  methods: {
+    login() {
+      console.log(this.form);
+    }
+  }
+}
+
+
+</script>
 
 <style scoped>
   .hero.is-success {

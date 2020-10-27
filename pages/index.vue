@@ -43,9 +43,9 @@ import { mapState } from "vuex";
 //
 export default {
   components: {
-    CourseCard,
-    BlogCard,
-    Hero
+    CourseCard: course-card,
+    BlogCard: blog-card,
+    Hero: hero
   },
   computed: {
     ...mapState({
