@@ -1,16 +1,20 @@
 <template>
   <div>
-    <!-- Hero sectino -->
     <hero />
-    <!-- Hero sectino -->
+
     <section class="section">
       <div class="container">
         <h1 class="title">Featured Courses</h1>
         <div class="columns">
-          <div class="column is-one-quarter">
-            <!-- CARD-ITEM -->
-            <course-card />
-            <!-- CARD-ITEM-END -->
+          <!-- iterate columns with v-for and d'ont forget :key -->
+
+          <div
+            v-for="course in courses"
+            :key="course._id"
+            class="column is-one-quarter"
+          >
+            <!--  pass a course as a prop to courese card -->
+            <course-card :course="course" />
           </div>
         </div>
       </div>
