@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero sectino -->
-    <Hero />
+    <hero />
     <!-- Hero sectino -->
     <section class="section">
       <div class="container">
@@ -9,7 +9,7 @@
         <div class="columns">
           <div class="column is-one-quarter">
             <!-- CARD-ITEM -->
-            <CourseCard />
+            <course-card />
             <!-- CARD-ITEM-END -->
           </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="columns">
           <div class="column is-one-quarter">
             <!-- CARD-ITEM -->
-            <BlogCard />
+            <blog-card />
             <!-- CARD-ITEM-END -->
           </div>
         </div>
