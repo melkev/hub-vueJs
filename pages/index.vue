@@ -36,16 +36,16 @@
 
 <script>
 //
-import { CourseCard } from "~/components/shared/CourseCard";
-import { BlogCard } from "~/components/shared/BlogCard";
-import { Hero } from "~/components/shared/Hero";
+import CourseCard from "~/components/shared/CourseCard";
+import BlogCard from "~/components/shared/BlogCard";
+import Hero from "~/components/shared/Hero";
 import { mapState } from "vuex";
 //
 export default {
   components: {
-    CourseCard: course-card,
-    BlogCard: blog-card,
-    Hero: hero
+    "course-card": CourseCard,
+    "blog-card": BlogCard,
+    "hero": Hero,
   },
   computed: {
     ...mapState({
