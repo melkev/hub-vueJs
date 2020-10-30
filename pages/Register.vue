@@ -87,7 +87,11 @@
                     <span v-if="!$v.form.avatar.url" class="help is-danger"
                       >Url format is not valid!</span
                     >
-                    <span v-if="!$v.form.avatar.supportedFiledType"  class="help is-danger">Selected file type is not valid!</span>
+                    <span
+                      v-if="!$v.form.avatar.supportedFiledType"
+                      class="help is-danger"
+                      >Selected file type is not valid!</span
+                    >
                   </div>
                 </div>
               </div>
@@ -172,7 +176,7 @@ import {
   url,
   sameAs
 } from "vuelidate/lib/validators";
-import { supportedFiledType } from '@/helpers/validators'
+import { supportedFiledType } from "@/helpers/validators";
 export default {
   data() {
     return {
@@ -211,11 +215,29 @@ export default {
         required,
         sameAsPassword: sameAs("password")
       }
-    },
-    methods: {
-      register() {
-        this.$v.form.$touch();
-        console.log(this.form);
+    }
+  },
+  computed: {
+    isFormValid() {
+      return !this.$v.form.$invalid;
+    }
+  },
+  methods: {
+    /**
+     *  if form is valid push data and push user in login page
+     */
+    register() {
+      this.$v.form.$touch();
+      if (this.isFormValid) {
+        this.$store
+          .dispatch("auth/register", this.form)
+          .then(() => this.$router.push("/login"))
+          .catch(err =>
+            this.$toasted.error(
+              " Uuuups , unexpected issue please try to regiter again",
+              { duration: 3000 }
+            )
+          );
       }
     }
   }

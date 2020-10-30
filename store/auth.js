@@ -21,6 +21,20 @@ export const getters = {
 };
 
 export const actions = {
+  /**
+   *  create user
+   */
+  register(_, registerData) {
+    return this.$axios.$post("/api/v1/users/register", registerData)
+      .catch(error => {
+        let errorMessage =
+          "Uuups, something went wrong, try to register again!";
+        if (error.response.data.errors) {
+          errorMessage = error.response.data.errors.message;
+        }
+        return Promise.reject(errorMessage);
+      });
+  },
   /** login actions
    */
   login({ commit, state }, loginData) {
@@ -34,7 +48,7 @@ export const actions = {
   },
 
   /**
-   * preserve state after login 
+   * preserve state after login
    */
   getAuthUser({ commit, getters, state }) {
     const authUser = getters.authUser;
@@ -54,16 +68,17 @@ export const actions = {
       });
   },
   /**
-   * 
+   *
    */
-  logout({commit  }){
-    return this.$axios.$post('/api/v1/users/logout')
-      .then(()=> {
-        commit('setAuthUser', null)
-        return true
+  logout({ commit }) {
+    return this.$axios
+      .$post("/api/v1/users/logout")
+      .then(() => {
+        commit("setAuthUser", null);
+        return true;
       })
-      .catch((err)=> Promise.reject(err))
-  },
+      .catch(err => Promise.reject(err));
+  }
 };
 
 export const mutations = {
