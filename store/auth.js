@@ -21,6 +21,8 @@ export const getters = {
 };
 
 export const actions = {
+  /** login actions
+   */
   login({ commit, state }, loginData) {
     return this.$axios
       .$post("api/v1/users/login", loginData)
@@ -31,6 +33,9 @@ export const actions = {
       .catch(err => Promise.reject(err));
   },
 
+  /**
+   * preserve state after login 
+   */
   getAuthUser({ commit, getters, state }) {
     const authUser = getters.authUser;
 
@@ -47,7 +52,18 @@ export const actions = {
         commit("setAuthUser", null);
         return Promise.reject(err);
       });
-  }
+  },
+  /**
+   * 
+   */
+  logout({commit  }){
+    return this.$axios.$post('/api/v1/users/logout')
+      .then(()=> {
+        commit('setAuthUser', null)
+        return true
+      })
+      .catch((err)=> Promise.reject(err))
+  },
 };
 
 export const mutations = {

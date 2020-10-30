@@ -57,7 +57,7 @@
               >
                 Instructor
               </button>
-              <a class="button is-primary" @click="() => {}">
+              <a class="button is-primary" @click="logout">
                 Logout
               </a>
             </template>
@@ -85,6 +85,12 @@ export default {
       isAuth: "auth/isAuthenticated",
       isAdmin: "auth/isAdmin"
     })
+  },
+  methods: {
+    logout(){
+      this.$store.dispatch('auth/logout')
+        .then(()=> this.$router.push('/login'))
+    }
   }
 };
 </script>
