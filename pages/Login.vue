@@ -22,8 +22,12 @@
                     autocomplete="email"
                   />
                   <div v-if="$v.form.email.$error" class="form-error">
-                    <span v-if="!$v.form.email.required "  class="help is-danger">Email is required</span>
-                    <span v-if="!$v.form.email.emailValidator"  class="help is-danger"
+                    <span v-if="!$v.form.email.required" class="help is-danger"
+                      >Email is required</span
+                    >
+                    <span
+                      v-if="!$v.form.email.emailValidator"
+                      class="help is-danger"
                       >Email address is not valid</span
                     >
                   </div>
@@ -39,8 +43,12 @@
                     placeholder="Your Password"
                     autocomplete="current-password"
                   />
-                  <div v-if="$v.form.password.$error"  class="form-error">
-                    <span v-if="!$v.form.password.required "  class="help is-danger">Password is required</span>
+                  <div v-if="$v.form.password.$error" class="form-error">
+                    <span
+                      v-if="!$v.form.password.required"
+                      class="help is-danger"
+                      >Password is required</span
+                    >
                   </div>
                 </div>
               </div>
@@ -81,7 +89,7 @@ export default {
   validations: {
     form: {
       email: {
-        emailValidator: email  ,
+        emailValidator: email,
         required
       },
       password: {
@@ -91,7 +99,9 @@ export default {
   },
   methods: {
     login() {
-      this.$v.form.$touch()
+      this.$v.form.$touch();
+
+      this.$store.dispatch("auth/login", this.form);
     }
   }
 };
