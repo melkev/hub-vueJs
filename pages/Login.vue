@@ -97,11 +97,24 @@ export default {
       }
     }
   },
+  computed: {
+    isFormValid() {
+      return !this.$v.$invalid;
+    }
+  },
+
   methods: {
     login() {
       this.$v.form.$touch();
 
-      this.$store.dispatch("auth/login", this.form);
+      if (this.isFormValid) {
+        this.$store
+          .dispatch("auth/login", this.form)
+          .then(() => this.$router.push("/") , this.$toasted.success('login success return home page', {duration:3000}))
+          .catch(() =>
+            this.$toasted.error("Wrong email or password", { duration: 3000 })
+          );
+      }
     }
   }
 };

@@ -3,15 +3,14 @@ export const state = () => {
 };
 
 export const actions = {
-  login({ commit }, loginData) {
+  login({ commit, state }, loginData) {
     return this.$axios
       .$post("api/v1/users/login", loginData)
       .then(user => {
-        commit("setAuthUser", user);
+        commit("setAuthUser", user)
+        return state.user
       })
-      .catch(err => {
-        return Promise.reject(err);
-      });
+      .catch(err => Promise.reject(err));
   }
 };
 
