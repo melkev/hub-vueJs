@@ -110,7 +110,7 @@ export default {
       if (this.isFormValid) {
         this.$store
           .dispatch("auth/login", this.form)
-          .then(() => this.$router.push("/") , this.$toasted.success('login success return home page', {duration:3000}))
+          .then(() => this.$router.push("/"))
           .catch(() =>
             this.$toasted.error("Wrong email or password", { duration: 3000 })
           );

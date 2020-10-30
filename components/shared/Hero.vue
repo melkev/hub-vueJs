@@ -4,7 +4,7 @@
       <div
         class="hero-img"
         :style="{
-          background: `url(https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1631&q=80) no-repeat center center`
+          background: `url(https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945_1280.jpg) no-repeat center center`
         }"
       ></div>
       <div class="container">
