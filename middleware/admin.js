@@ -3,6 +3,6 @@ export default function({ store, redirect }) {
 
   if (!isAdmin) {
     // navigate later to not Authorized page
-    return redirect("/");
+    return redirect("/notAuthorized");
   }
 }

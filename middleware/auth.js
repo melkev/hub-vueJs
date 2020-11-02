@@ -3,6 +3,6 @@ export default function({ store, redirect }) {
 
   if (!isAuth) {
     // navigate later to notAuthenticated page
-    return redirect("/");
+    return redirect("/notAuthenticated");
   }
 }
