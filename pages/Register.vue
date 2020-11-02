@@ -174,10 +174,11 @@ import {
   email,
   minLength,
   url,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 import { supportedFiledType } from "@/helpers/validators";
 export default {
+  middleware: "guest",
   data() {
     return {
       form: {
@@ -185,42 +186,42 @@ export default {
         name: null,
         avatar: null,
         password: null,
-        passwordConfirmation: null
-      }
+        passwordConfirmation: null,
+      },
     };
   },
   validations: {
     form: {
       username: {
         required,
-        minLength: minLength(6)
+        minLength: minLength(6),
       },
       name: {
         required,
-        minLength: minLength(6)
+        minLength: minLength(6),
       },
       email: {
         required,
-        emailValidator: email
+        emailValidator: email,
       },
       avatar: {
         url,
-        supportedFiledType
+        supportedFiledType,
       },
       password: {
         required,
-        minLength: minLength(6)
+        minLength: minLength(6),
       },
       passwordConfirmation: {
         required,
-        sameAsPassword: sameAs("password")
-      }
-    }
+        sameAsPassword: sameAs("password"),
+      },
+    },
   },
   computed: {
     isFormValid() {
       return !this.$v.form.$invalid;
-    }
+    },
   },
   methods: {
     /**
@@ -232,15 +233,15 @@ export default {
         this.$store
           .dispatch("auth/register", this.form)
           .then(() => this.$router.push("/login"))
-          .catch(err =>
+          .catch((err) =>
             this.$toasted.error(
               " Uuuups , unexpected issue please try to regiter again",
               { duration: 3000 }
             )
           );
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
