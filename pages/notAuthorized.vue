@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <ErrorView
+    <error-view
       :title="
         'Ooooops, you are not authorized to visit this page, please talk to administrator in order to get access rights'
       "
@@ -15,7 +15,7 @@
 import ErrorView from "@/components/shared/ErrorView";
 export default {
   components: {
-    ErrorView
+  'error-view':  ErrorView
   }
 };
 </script>
