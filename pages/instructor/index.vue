@@ -1,5 +1,6 @@
 <template>
   <div class="instructor-page">
+    <head-er title="choose your admin page" exitLink="/" />
     <div class="centered">
       <div class="columns">
         <!-- Go to /instructor/courses -->
@@ -24,10 +25,15 @@
     </div>
   </div>
 </template>
+
 <script>
+import Header from "@/components/shared/Header";
 export default {
   middleware: "admin",
-  layout: "instructor"
+  layout: "instructor",
+  components: {
+    "head-er": Header
+  }
 };
 </script>
 <style scoped lang="scss">

@@ -1,4 +1,5 @@
 .full-page-takeover {
+  
     &-page {
       display: flex;
       flex-direction: column;
@@ -11,7 +12,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background: #fff;
+      background: rgb(0, 0, 0);
       z-index: 1050;
     }
   
@@ -28,7 +29,7 @@
       height: 60px;
       align-items: center;
       padding: 40px 0;
-  
+      background: #58529f;
       &-bottom {
         &-progress {
           background: #e8e9eb;
@@ -37,7 +38,7 @@
   
           &-highlight {
             // width: 50%;
-            background: #a1a7b3;
+            background: #ffffff;
             box-sizing: content-box;
             border-radius: 0 3px 3px 0;
             height: 100%;
@@ -61,7 +62,7 @@
       }
   
       &-text {
-        color: #686f7a;
+        color: #ffffff;
         flex: 1 1;
         padding: 0 30px;
         font-size: 18px;

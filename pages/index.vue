@@ -82,9 +82,7 @@ export default {
 .user-avatar {
   display: inline-block;
 }
-.is-black {
-  background-color: black;
-}
+
 .title {
   font-weight: bold;
   font-size: 43px;

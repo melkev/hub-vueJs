@@ -3,15 +3,18 @@
     <instructor-header title="Create your courses">
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
-          <nuxt-link to="#" class="button is-medium is-light">
+          <div class="buttons">
+
+          <nuxt-link to="#" class="button  is-primary is-outlined">
             New Course
           </nuxt-link>
           <nuxt-link
             to="/"
-            class="button is-danger is-medium is-inverted is-outlined"
+            class="button is-danger  is-inverted is-outlined"
           >
             Student
           </nuxt-link>
+          </div>
         </div>
       </template>
     </instructor-header>

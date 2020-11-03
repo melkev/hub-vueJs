@@ -3,26 +3,27 @@
     <div class="full-page-takeover-header-logo">
       <p class="full-page-takeover-header-logo-title">Promo Yourself</p>
     </div>
-    <div class="full-page-takeover-header-divider">
-    </div>
+    <div class="full-page-takeover-header-divider"></div>
     <div class="full-page-takeover-header-text">
-      {{title}}
+      {{ title }}
     </div>
     <div class="user-box">
-      <figure class="image is-48x48 m-r-sm">
-        <img class="is-rounded" :src="user.avatar">
+      <figure class="avatar image is-32x32 m-r-sm">
+        <img class="is-rounded" :src="user.avatar" />
       </figure>
-      <div class="m-r-sm m-b-sm">
-        Welcome {{user.username}}!
-      </div>
+      <div class="m-r-sm m-b-sm">Welcome {{ user.username }}!</div>
     </div>
     <slot name="actionMenu"></slot>
     <div v-if="exitLink" class="full-page-takeover-header-button">
+      <div class="buttons" >
+
       <nuxt-link
         :to="exitLink"
-        class="button is-danger is-medium is-inverted is-outlined">
+        class="button is-danger is-inverted is-outlined"
+      >
         Exit
       </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -41,19 +42,22 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters['auth/authUser'] || {}
+      return this.$store.getters["auth/authUser"] || {};
     }
   }
-}
+};
 </script>
 <style scoped>
-  .user-box {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-right: 10px;
-    font-size: 17px;
-    font-weight: bold;
-  }
+.user-box {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-right: 10px;
+  font-size: 17px;
+  font-weight: bold;
+}
+.avatar {
+  margin-right: 5px;
+}
 </style>
