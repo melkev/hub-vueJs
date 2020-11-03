@@ -20,26 +20,29 @@
         <div class="full-page-footer-row">
           <div class="container">
             <div class="full-page-footer-col">
-              <div>
-                <a 
-                v-if="!isFirstStep"
-                @click.prevent="previousStep" class="button is-medium"
+              <div v-if="!isFirstStep">
+                <a @click.prevent="previousStep" class="button is-medium"
                   >Previous</a
                 >
               </div>
-              <!-- <div v-else class="empty-container">
-              </div> -->
+              <div v-else class="empty-container"></div>
             </div>
             <div class="full-page-footer-col">
               <div>
                 <button
-                v-if="!isLastStep"
+                  v-if="!isLastStep"
                   @click.prevent="nextStep"
                   class="button is-medium float-right"
                 >
                   Continue
                 </button>
-                
+                <button
+                  v-else
+                  @click="() => {}"
+                  class="button is-success is-medium float-right"
+                >
+                  Confirm
+                </button>
               </div>
             </div>
           </div>
@@ -60,30 +63,30 @@ export default {
     "course-step-one": CourseCreateStep1,
     "course-step-two": CourseCreateStep2
   },
-  data(){
+  data() {
     return {
       // for increment next step or decrement
       activeStep: 1,
-      step: ['CourseCreateStep1','CourseCreateStep2']
-    }
+      step: ["CourseCreateStep1", "CourseCreateStep2"]
+    };
   },
   computed: {
-    stepLength(){
-      return this.step.length
+    stepLength() {
+      return this.step.length;
     },
-    isLastStep(){
-      return this.activeStep === this.stepLength
+    isLastStep() {
+      return this.activeStep === this.stepLength;
     },
-    isFirstStep(){
-      return this.activeStep === 1
+    isFirstStep() {
+      return this.activeStep === 1;
     }
   },
   methods: {
-    nextStep(){
-      this.activeStep++
+    nextStep() {
+      this.activeStep++;
     },
-    previousStep(){
-      this.activeStep--
+    previousStep() {
+      this.activeStep--;
     }
   }
 };
