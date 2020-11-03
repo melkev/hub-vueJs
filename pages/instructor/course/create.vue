@@ -21,7 +21,9 @@
           <div class="container">
             <div class="full-page-footer-col">
               <div>
-                <a @click.prevent="previousStep" class="button is-medium"
+                <a 
+                v-if="!isFirstStep"
+                @click.prevent="previousStep" class="button is-medium"
                   >Previous</a
                 >
               </div>
@@ -31,6 +33,7 @@
             <div class="full-page-footer-col">
               <div>
                 <button
+                v-if="!isLastStep"
                   @click.prevent="nextStep"
                   class="button is-medium float-right"
                 >
@@ -60,7 +63,19 @@ export default {
   data(){
     return {
       // for increment next step or decrement
-      activeStep: 1
+      activeStep: 1,
+      step: ['CourseCreateStep1','CourseCreateStep2']
+    }
+  },
+  computed: {
+    stepLength(){
+      return this.step.length
+    },
+    isLastStep(){
+      return this.activeStep === this.stepLength
+    },
+    isFirstStep(){
+      return this.activeStep === 1
     }
   },
   methods: {
