@@ -22,7 +22,7 @@
             <!-- Iterate Courses -->
             <div
               v-for="course in courses"
-              :key="course"
+              :key="course._id"
               class="tile is-ancestor"
             >
               <div class="tile is-parent is-12">
