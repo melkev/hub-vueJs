@@ -1,7 +1,7 @@
 <template>
   <div class="full-page-takeover-window">
     <div class="full-page-takeover-page">
-      <head-er :title="`Step 1 of 2`" exitLink="#" />
+      <head-er :title="`Step 1 of 2`" exitLink="/instructor/courses" />
       <div class="full-page-takeover-header-bottom-progress">
         <div
           :style="{ width: '50%' }"

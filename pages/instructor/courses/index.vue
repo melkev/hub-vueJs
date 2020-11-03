@@ -4,7 +4,7 @@
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
           <div class="buttons">
-            <nuxt-link to="#" class="button  is-primary is-outlined">
+            <nuxt-link to="/instructor/course/create" class="button  is-primary is-outlined">
               New Course
             </nuxt-link>
             <nuxt-link to="/" class="button is-danger  is-inverted is-outlined">
