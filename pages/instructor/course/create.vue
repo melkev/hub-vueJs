@@ -11,17 +11,17 @@
       <div class="course-create full-page-takeover-container">
         <div class="container">
           <!-- STEP 1 of FORM  -->
-          <course-step-one />
+          <course-step-one v-if="activeStep === 1" />
           <!-- STEP 1 END-->
           <!-- STEP 2 of FORM -->
-          <course-step-two />
+          <course-step-two v-if="activeStep === 2" />
           <!-- STEP 2 END -->
         </div>
         <div class="full-page-footer-row">
           <div class="container">
             <div class="full-page-footer-col">
               <div>
-                <a @click.prevent="() => {}" class="button is-medium"
+                <a @click.prevent="previousStep" class="button is-medium"
                   >Previous</a
                 >
               </div>
@@ -31,7 +31,7 @@
             <div class="full-page-footer-col">
               <div>
                 <button
-                  @click.prevent="() => {}"
+                  @click.prevent="nextStep"
                   class="button is-medium float-right"
                 >
                   Continue
@@ -56,6 +56,20 @@ export default {
     "head-er": Header,
     "course-step-one": CourseCreateStep1,
     "course-step-two": CourseCreateStep2
+  },
+  data(){
+    return {
+      // for increment next step or decrement
+      activeStep: 1
+    }
+  },
+  methods: {
+    nextStep(){
+      this.activeStep++
+    },
+    previousStep(){
+      this.activeStep--
+    }
   }
 };
 </script>
