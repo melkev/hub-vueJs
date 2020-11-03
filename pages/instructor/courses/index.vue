@@ -4,16 +4,12 @@
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
           <div class="buttons">
-
-          <nuxt-link to="#" class="button  is-primary is-outlined">
-            New Course
-          </nuxt-link>
-          <nuxt-link
-            to="/"
-            class="button is-danger  is-inverted is-outlined"
-          >
-            Student
-          </nuxt-link>
+            <nuxt-link to="#" class="button  is-primary is-outlined">
+              New Course
+            </nuxt-link>
+            <nuxt-link to="/" class="button is-danger  is-inverted is-outlined">
+              Student
+            </nuxt-link>
           </div>
         </div>
       </template>
@@ -75,8 +71,17 @@
 import InstructorHeader from "~/components/shared/Header";
 export default {
   layout: "instructor",
+
   components: {
     InstructorHeader
+  },
+  computed: {
+    courses() {
+      return this.$store.state.instructor.course.items;
+    }
+  },
+  fetch({ store }) {
+    return store.dispatch("instructor/course/fetchInstructorCourses");
   }
 };
 </script>

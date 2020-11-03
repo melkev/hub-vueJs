@@ -29,7 +29,6 @@
 <script>
 import Header from "@/components/shared/Header";
 export default {
-  middleware: "admin",
   layout: "instructor",
   components: {
     "head-er": Header
