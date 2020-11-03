@@ -20,7 +20,11 @@
           <div class="column is-8 is-offset-2">
             <h1 class="courses-page-title">Your Courses</h1>
             <!-- Iterate Courses -->
-            <div class="tile is-ancestor">
+            <div
+              v-for="course in courses"
+              :key="course"
+              class="tile is-ancestor"
+            >
               <div class="tile is-parent is-12">
                 <!-- Navigate to course manage page -->
                 <nuxt-link
@@ -42,20 +46,15 @@
                     </div>
                     <div class="column">
                       <p class="title">
-                        Dart and Flutter From Zero to Hero - Practical Dev
-                        Bootcamp
+                        {{ course.title }}
                       </p>
                       <p class="subtitle">
-                        Build real mobile Application for Android and iOS. Learn
-                        Dart Framework and discover amazing features of Flutter.
+                        {{ course.subtitle }}
                       </p>
-                      <span class="tag" :class="'is-success'">Published</span>
+                      <span class="tag" :class="'is-success'"> {{ course.status }}  </span>
                     </div>
                     <div class="column is-narrow flex-centered">
-                      <div class="price-title">
-                        <!-- {{course.price || 0}} $ -->
-                        178.99 $
-                      </div>
+                      <div class="price-title">{{ course.price || 0 }} $</div>
                     </div>
                   </div>
                 </nuxt-link>
@@ -68,7 +67,7 @@
   </div>
 </template>
 <script>
-import InstructorHeader from "~/components/shared/Header";
+import InstructorHeader from "@/components/shared/Header";
 export default {
   layout: "instructor",
 
