@@ -12,7 +12,11 @@
         <div class="container">
           <!-- Primarily used to preserve component state or avoid re-rendering -->
           <keep-alive>
-            <component :is="activeComponent" @stepUpdated="mergeFormData" />
+            <component
+              :is="activeComponent"
+              ref="activeComponent"
+              @stepUpdated="mergeFormData"
+            />
           </keep-alive>
         </div>
         <div class="full-page-footer-row">
@@ -37,7 +41,7 @@
                 </button>
                 <button
                   v-else
-                   :disabled="!canProceed"
+                  :disabled="!canProceed"
                   @click="() => {}"
                   class="button is-success is-medium float-right"
                 >
@@ -104,10 +108,13 @@ export default {
   methods: {
     nextStep() {
       this.activeStep++;
-      this.canProceed = false
+      this.$nextTick(() => {
+        this.canProceed = this.$refs.activeComponent.isValid;
+      });
     },
     previousStep() {
       this.activeStep--;
+      this.canProceed = true;
     },
     mergeFormData({ data, isValid }) {
       this.form = { ...this.form, ...data };

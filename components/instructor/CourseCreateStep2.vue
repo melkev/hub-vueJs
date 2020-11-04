@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     isValid() {
-      return !this.$v.$invalid && this.form.category !== 'default'
+      return !this.$v.$invalid && this.form.category !== "default";
     },
 
     categories() {
