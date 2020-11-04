@@ -90,7 +90,15 @@ export default {
     },
     activeComponent() {
       return this.steps[this.activeStep - 1];
+    },
+    //
+    categories() {
+      return this.$store.state.category.items;
     }
+  },
+  //
+  fetch({ store }) {
+    return store.dispatch("category/fetchCategories");
   },
   methods: {
     nextStep() {
