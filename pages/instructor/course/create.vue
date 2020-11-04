@@ -1,7 +1,7 @@
 <template>
   <div class="full-page-takeover-window">
     <div class="full-page-takeover-page">
-      <head-er :title="`Step 1 of 2`" exitLink="/instructor/courses" />
+      <Header :title="`Step 1 of 2`" exitLink="/instructor/courses" />
       <div class="full-page-takeover-header-bottom-progress">
         <div
           :style="{ width: progress }"
@@ -10,20 +10,18 @@
       </div>
       <div class="course-create full-page-takeover-container">
         <div class="container">
-          <!-- STEP 1 of FORM  -->
-          <course-step-one v-if="activeStep === 1" />
-          <!-- STEP 1 END-->
-          <!-- STEP 2 of FORM -->
-          <course-step-two v-if="activeStep === 2" />
-          <!-- STEP 2 END -->
+          <!-- Primarily used to preserve component state or avoid re-rendering -->
+          <keep-alive>
+            <component :is="activeComponent" />
+          </keep-alive>
         </div>
         <div class="full-page-footer-row">
           <div class="container">
             <div class="full-page-footer-col">
               <div v-if="!isFirstStep">
-                <a @click.prevent="previousStep" class="button is-medium"
-                  >Previous</a
-                >
+                <a @click.prevent="previousStep" class="button is-large"
+                  >Previous
+                </a>
               </div>
               <div v-else class="empty-container"></div>
             </div>
@@ -32,14 +30,15 @@
                 <button
                   v-if="!isLastStep"
                   @click.prevent="nextStep"
-                  class="button is-medium float-right"
+                  :disabled="!canProceed"
+                  class="button is-large float-right"
                 >
                   Continue
                 </button>
                 <button
                   v-else
                   @click="() => {}"
-                  class="button is-success is-medium float-right"
+                  class="button is-success is-large float-right"
                 >
                   Confirm
                 </button>
@@ -51,37 +50,40 @@
     </div>
   </div>
 </template>
-
 <script>
-import Header from "@/components/shared/Header";
-import CourseCreateStep1 from "@/components/instructor/CourseCreateStep1";
-import CourseCreateStep2 from "@/components/instructor/CourseCreateStep2";
+import Header from "~/components/shared/Header";
+import CourseCreateStep1 from "~/components/instructor/CourseCreateStep1";
+import CourseCreateStep2 from "~/components/instructor/CourseCreateStep2";
 export default {
   layout: "instructor",
   components: {
-    "head-er": Header,
-    "course-step-one": CourseCreateStep1,
-    "course-step-two": CourseCreateStep2
+    Header,
+    CourseCreateStep1,
+    CourseCreateStep2
   },
   data() {
     return {
       // for increment next step or decrement
       activeStep: 1,
-      step: ["CourseCreateStep1", "CourseCreateStep2"]
+      steps: ["CourseCreateStep1", "CourseCreateStep2"],
+      canProceed: false
     };
   },
   computed: {
-    stepLength() {
-      return this.step.length;
+    stepsLength() {
+      return this.steps.length;
     },
     isLastStep() {
-      return this.activeStep === this.stepLength;
+      return this.activeStep === this.stepsLength;
     },
     isFirstStep() {
       return this.activeStep === 1;
     },
     progress() {
-      return `${(100 / this.stepLength) * this.activeStep}%`;
+      return `${(100 / this.stepsLength) * this.activeStep}%`;
+    },
+    activeComponent() {
+      return this.steps[this.activeStep - 1];
     }
   },
   methods: {
@@ -94,7 +96,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss">
 .float-right {
   float: right;
