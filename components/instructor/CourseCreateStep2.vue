@@ -11,12 +11,9 @@
         <div class="course-create-form-field">
           <div class="select is-medium">
             <select>
-              <option value="default">Select Category</option>
-              <option>
-                Mobile Development
-              </option>
-              <option>
-                Web Development
+              <option value="default">Select category</option>
+              <option v-for="category in categories" :key="category._id">
+               {{ category.name }}
               </option>
             </select>
           </div>
@@ -27,7 +24,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    categories() {
+      return this.$store.state.category.items;
+    }
+  },
+ 
+};
 </script>
 
 <style lang="scss" scoped></style>
