@@ -12,7 +12,7 @@
         <div class="container">
           <!-- Primarily used to preserve component state or avoid re-rendering -->
           <keep-alive>
-            <component :is="activeComponent" />
+            <component :is="activeComponent" @stepUpdated="mergeFormData" />
           </keep-alive>
         </div>
         <div class="full-page-footer-row">
@@ -31,14 +31,14 @@
                   v-if="!isLastStep"
                   @click.prevent="nextStep"
                   :disabled="!canProceed"
-                  class="button is-large float-right"
+                  class="button is-medium float-right"
                 >
                   Continue
                 </button>
                 <button
                   v-else
                   @click="() => {}"
-                  class="button is-success is-large float-right"
+                  class="button is-success is-medium float-right"
                 >
                   Confirm
                 </button>
@@ -66,7 +66,13 @@ export default {
       // for increment next step or decrement
       activeStep: 1,
       steps: ["CourseCreateStep1", "CourseCreateStep2"],
-      canProceed: false
+      // disabled button if steps is not complete
+      canProceed: false,
+      //
+      form: {
+        title: "",
+        category: ""
+      }
     };
   },
   computed: {
@@ -92,6 +98,10 @@ export default {
     },
     previousStep() {
       this.activeStep--;
+    },
+    mergeFormData({ data, isValid }) {
+      this.form = { ...this.form, ...data };
+      this.canProceed = isValid;
     }
   }
 };
