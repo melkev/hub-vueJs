@@ -10,10 +10,10 @@
       <div class="course-create-form-group">
         <div class="course-create-form-field">
           <div class="select is-medium">
-            <select>
+            <select @change="emitFormData">
               <option value="default">Select category</option>
               <option v-for="category in categories" :key="category._id">
-               {{ category.name }}
+                {{ category.name }}
               </option>
             </select>
           </div>
@@ -24,13 +24,34 @@
 </template>
 
 <script>
+import { required } from "vuelidate/lib/validators";
 export default {
+  data() {
+    return {
+      form: {
+        category: ""
+      }
+    };
+  },
+  validations: {
+    form: {
+      category: { required }
+    }
+  },
   computed: {
+    isValid() {
+      return !this.$v.$invalid;
+    },
+
     categories() {
       return this.$store.state.category.items;
     }
   },
- 
+  methods: {
+    emitFormData() {
+      this.$emit("stepUpdated", { data: this.form, isValid: this.isValid });
+    }
+  }
 };
 </script>
 
