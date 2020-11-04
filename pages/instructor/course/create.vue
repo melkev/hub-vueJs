@@ -4,7 +4,7 @@
       <head-er :title="`Step 1 of 2`" exitLink="/instructor/courses" />
       <div class="full-page-takeover-header-bottom-progress">
         <div
-          :style="{ width: '50%' }"
+          :style="{ width: progress }"
           class="full-page-takeover-header-bottom-progress-highlight"
         ></div>
       </div>
@@ -79,6 +79,9 @@ export default {
     },
     isFirstStep() {
       return this.activeStep === 1;
+    },
+    progress() {
+      return `${(100 / this.stepLength) * this.activeStep}%`;
     }
   },
   methods: {
