@@ -1,22 +1,22 @@
 <template>
   <header
-    class="bg-gray-100 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 sm:h-16 s"
+    class="bg-gray-100 md:flex md:justify-between md:items-center md:px-4 md:py-3 md:h-16 "
   >
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <nuxt-link class="text-gray-800 font-semibold rounded " to="/">
         <h1
-          class="mt-1 block px-2 text-xl sm:text-2xl  sm:mt-0 sm:ml-2 md:text-3xl"
+          class="mt-1 block px-2 text-xl sm:text-2xl  sm:mt-0 sm:ml-2 "
         >
           Pearl-hub
         </h1>
       </nuxt-link>
-      <div class="sm:hidden">
+      <div class="md:hidden">
         <button
           @click="isOpen = !isOpen"
           type="button"
-          class="block text-gray-800 hover:text-gray-800 focus:text-gray-800 focus:outline-none"
+          class="block text-gray-800 hover:text-gray-800 focus:text-gray-800 focus:outline-none sm:mr-8"
         >
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+          <svg class="h-6 w-6 sm:h-16 sm:w-10 fill-current" viewBox="0 0 24 24">
             <path
               v-if="isOpen"
               fill-rule="evenodd"
@@ -33,7 +33,7 @@
     </div>
     <nav
       :class="isOpen ? 'block' : 'hidden'"
-      class="px-2 pt-2 pb-4 sm:flex sm:p-0"
+      class="px-2 pt-2 pb-4 md:flex md:p-0"
     >
       <nuxt-link
         to="/"
@@ -67,9 +67,9 @@
       </nuxt-link>
 
       <!--  -->
-      <div class="flex justify-around items-center lg:ml-24 ">
+      <div class="flex justify-around items-center md:ml-16 lg:ml-24 ">
         <template v-if="isAuth">
-          <div class="hidden sm:flex items-center justify-center sm:mr-4">
+          <div class="hidden lg:flex items-center justify-center lg:mr-4">
             <figure class="w-6">
               <img class=" hidden lg:block rounded-2xl" :src="user.avatar" />
             </figure>
