@@ -139,14 +139,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.brand-title {
-  font-size: 35px;
-  font-weight: bold;
-}
-.navbar-brand {
-  padding-right: 30px;
-}
-.avatar {
-  margin-right: 5px;
-}
+
 </style>
