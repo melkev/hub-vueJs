@@ -13,7 +13,7 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     // Load a Node.js module directly (here it's a Sass file)
-    "bulma",
+    
 
     // SCSS file in the project
     "@/assets/scss/main.scss"
@@ -36,7 +36,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    "@nuxtjs/bulma",
+    "@nuxtjs/tailwindcss",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios"
   ],

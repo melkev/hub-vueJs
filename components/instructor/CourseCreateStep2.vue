@@ -10,7 +10,11 @@
       <div class="course-create-form-group">
         <div class="course-create-form-field">
           <div class="select is-medium">
-            <select v-model="form.category" @change="emitFormData">
+            <select
+              v-model="form.category"
+              @change="emitFormData"
+              @blur="$v.form.category.$touch()"
+            >
               <!--  -->
               <option value="default">Select category</option>
               <option
@@ -21,6 +25,9 @@
                 {{ category.name }}
               </option>
             </select>
+          </div>
+          <div v-if="$v.form.category.$dirty && !isValid" class="form-error">
+            <span class="help is-danger">category is required</span>
           </div>
         </div>
       </div>
@@ -60,4 +67,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.help.is-danger {
+  text-align: left;
+}
+</style>

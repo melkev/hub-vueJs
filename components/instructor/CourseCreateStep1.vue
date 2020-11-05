@@ -11,12 +11,18 @@
         <div class="field course-create-form-field control has-icons-right">
           <input
             @input="emitFormData"
+            @blur="$v.form.title.$touch()"
             v-model="form.title"
             :maxLength="50"
             type="text"
             placeholder="e.g. Amazing Course in Flutter!"
             class="input "
           />
+          <div v-if="$v.form.title.$error" class="form-error">
+            <span v-if="!$v.form.title.required" class="help is-danger"
+              >Title is required</span
+            >
+          </div>
         </div>
       </div>
     </form>
