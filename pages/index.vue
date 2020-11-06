@@ -20,7 +20,7 @@
     <section class="container p-5">
       <h1 class="title">Featured Articles</h1>
       <div class="flex">
-        <div class="column is-one-quarter">
+        <div class="container">
           <!-- CARD-ITEM -->
           <blog-card />
           <!-- CARD-ITEM-END -->
