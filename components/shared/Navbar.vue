@@ -80,13 +80,13 @@
           <!-- If Admin -->
           <button
             v-if="isAdmin"
-            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0"
+            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0"
             @click="() => $router.push('/instructor')"
           >
             Instructor
           </button>
           <a
-            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0"
+            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0"
             @click="logout"
           >
             Logout
@@ -97,13 +97,13 @@
         <template v-else>
           <nuxt-link
             to="/register"
-            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold text-gray-800 hover:bg-gray-500 mt-4 sm:w-20 sm:ml-3 sm:mt-0 "
+            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800 hover:bg-gray-500 mt-4 sm:w-20 sm:ml-3 sm:mt-0 "
           >
             Sign up
           </nuxt-link>
           <nuxt-link
             to="/login"
-            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0 "
+            class="w-1/3 text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0 "
           >
             Log in
           </nuxt-link>

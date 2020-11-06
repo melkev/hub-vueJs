@@ -8,8 +8,16 @@
         }"
       ></div>
       <div class="container  z-10 flex-col pb-8">
-        <h1 class=" ml-6 pt-16 sm:pt-20 text-2xl sm:text-4xl font-bold text-white">Super Amazing Promo</h1>
-        <h2 class="ml-6 mb-8 pt-2 sm:pt-4 text-xl sm:text-2xl font-bold text-white">Super Amazing Promo Subtitle</h2>
+        <h1
+          class=" ml-6 pt-16 sm:pt-20 text-2xl sm:text-4xl font-bold text-white"
+        >
+          Super Amazing Promo
+        </h1>
+        <h2
+          class="ml-6 mb-8 pt-2 sm:pt-4 text-xl sm:text-2xl font-bold text-white"
+        >
+          Super Amazing Promo Subtitle
+        </h2>
         <a
           target="_"
           :href="'#'"

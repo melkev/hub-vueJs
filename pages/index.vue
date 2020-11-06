@@ -2,32 +2,28 @@
   <div>
     <hero />
 
-    <section class="section">
-      <div class="container">
-        <h1 class="title">Featured Courses</h1>
-        <div class="columns">
-          <!-- iterate columns with v-for and d'ont forget :key -->
+    <section class="container p-5">
+      <h1 class="text-2xl sm:text-4xl font-bold pb-6 ml-4">Featured Courses</h1>
+      <div class="columns">
+        <!-- iterate columns with v-for and d'ont forget :key -->
 
-          <div
-            v-for="course in courses"
-            :key="course._id"
-            class="column is-one-quarter"
-          >
-            <!--  pass a course as a prop to courese card -->
-            <course-card :course="course" />
-          </div>
+        <div
+          v-for="course in courses"
+          :key="course._id"
+          class="column is-one-quarter"
+        >
+          <!--  pass a course as a prop to courese card -->
+          <course-card :course="course" />
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">Featured Articles</h1>
-        <div class="columns">
-          <div class="column is-one-quarter">
-            <!-- CARD-ITEM -->
-            <blog-card />
-            <!-- CARD-ITEM-END -->
-          </div>
+    <section class="container p-5">
+      <h1 class="title">Featured Articles</h1>
+      <div class="flex">
+        <div class="column is-one-quarter">
+          <!-- CARD-ITEM -->
+          <blog-card />
+          <!-- CARD-ITEM-END -->
         </div>
       </div>
     </section>
@@ -45,7 +41,7 @@ export default {
   components: {
     "course-card": CourseCard,
     "blog-card": BlogCard,
-    "hero": Hero,
+    hero: Hero
   },
   computed: {
     ...mapState({
@@ -83,23 +79,12 @@ export default {
   display: inline-block;
 }
 
-.title {
-  font-weight: bold;
-  font-size: 43px;
-}
 .subtitle {
   /*font-weight: bold;*/
   font-size: 25px;
 }
-.author-name {
-  font-size: 20px;
-  font-weight: bold;
-}
+
 // hero
-.links {
-  padding-top: 15px;
-}
-// Home page
 .links {
   padding-top: 15px;
 }
