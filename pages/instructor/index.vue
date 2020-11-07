@@ -2,7 +2,7 @@
   <div class="instructor-page">
     <head-er title="choose your admin page" exitLink="/" />
     <div class="centered">
-      <div class="columns">
+      <div class="flex">
         <!-- Go to /instructor/courses -->
         <div class="box" @click="() => $router.push('/instructor/courses')">
           <div>

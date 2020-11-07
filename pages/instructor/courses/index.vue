@@ -3,38 +3,36 @@
     <instructor-header title="Create your courses">
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
-          <div class="buttons">
-            <nuxt-link to="/instructor/course/create" class="button  is-primary is-outlined">
+          <div class="flex justify-around items-center md:ml-10  ">
+            <nuxt-link to="/instructor/course/create"  class=" bg-teal-500 hover:bg-teal-700  text-center text-sm  px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-4  sm:ml-3 sm:mt-0">
               New Course
             </nuxt-link>
-            <nuxt-link to="/" class="button is-danger  is-inverted is-outlined">
+            <nuxt-link to="/"  class="ml-1 bg-teal-500 hover:bg-teal-700  text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-4 sm:w-20 sm:ml-3 md:ml-6 sm:mt-0">
               Student
             </nuxt-link>
           </div>
         </div>
       </template>
     </instructor-header>
-    <div class="courses-page">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-8 is-offset-2">
-            <h1 class="courses-page-title">Your Courses</h1>
-            <!-- Iterate Courses -->
+    <div class="courses-page" >
+      <div class="container p-4">
+           <h1 class="courses-page-title">Your Courses</h1>
+        <div class=" sm:mx-10  flex flex-col justify-around  items-center ">
+
             <div
               v-for="course in courses"
               :key="course._id"
-              class="tile is-ancestor"
-            >
-              <div class="tile is-parent is-12">
+              class="max-w-sm flex  rounded overflow-hidden shadow-lg"
+            ><div class="">
                 <!-- Navigate to course manage page -->
                 <nuxt-link
                   :to="'#'"
-                  class="tile tile-overlay-container is-child box"
+                  class=" box"
                 >
                   <div class="tile-overlay">
                     <span class="tile-overlay-text"> Update Course </span>
                   </div>
-                  <div class="columns">
+                  <div class="flex flex-col">
                     <div class="column is-narrow">
                       <figure class="image is-4by2 is-128x128">
                         <img
@@ -44,25 +42,24 @@
                         />
                       </figure>
                     </div>
-                    <div class="column">
-                      <p class="title">
+                    <div class=" flex flex-col justify-center  py-2 px-4">
+                      <p class="font-bold text-xl py-2 " >
                         {{ course.title }}
                       </p>
-                      <p class="subtitle">
+                      <p class=" text-base px-2 mb-3">
                         {{ course.subtitle }}
                       </p>
-                      <span class="tag" :class="'is-success'"> {{ course.status }}  </span>
+                      <span class="font-semibold italic" :class="'text-teal-700'"> {{ course.status }}  </span>
                     </div>
-                    <div class="column is-narrow flex-centered">
-                      <div class="price-title">{{ course.price || 0 }} $</div>
+                    <div class="column is-narrow flex-centered -mt-8 mb-5 mr-5">
+                      <div class="price-title font-semibold italic">{{ course.price || 0 }} $</div>
                     </div>
                   </div>
                 </nuxt-link>
               </div>
             </div>
-          </div>
         </div>
-      </div>
+      </div>  
     </div>
   </div>
 </template>
@@ -88,10 +85,7 @@ export default {
 .tile-image {
   float: left;
 }
-.price-title {
-  font-size: 40px;
-  font-weight: bold;
-}
+
 .flex-centered {
   align-items: center;
   justify-content: flex-end;
@@ -147,4 +141,5 @@ export default {
     padding-bottom: 20px;
   }
 }
+
 </style>
