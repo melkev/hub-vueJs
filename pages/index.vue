@@ -3,7 +3,7 @@
     <hero />
 
     <section class="container p-5">
-      <h1 class="text-2xl sm:text-4xl font-bold pb-6 ml-4">Featured Courses</h1>
+      <h1 class="text-2xl sm:text-4xl font-bold pb-6 ml-4 sm:ml-12">Featured Courses</h1>
       <div class="columns">
         <!-- iterate columns with v-for and d'ont forget :key -->
 

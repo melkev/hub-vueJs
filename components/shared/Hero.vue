@@ -7,21 +7,21 @@
           background: `url(https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945_1280.jpg) no-repeat center center`
         }"
       ></div>
-      <div class="container  z-10 flex-col pb-8">
+      <div class="container  z-10 flex-col pb-8 ml-6 sm:ml-20">
         <h1
-          class=" ml-6 pt-16 sm:pt-20 text-2xl sm:text-4xl font-bold text-white"
+          class="  pt-16 sm:pt-20 text-2xl sm:text-4xl font-bold text-white"
         >
           Super Amazing Promo
         </h1>
         <h2
-          class="ml-6 mb-8 pt-2 sm:pt-4 text-xl sm:text-2xl font-bold text-white"
+          class=" mb-8 pt-2 sm:pt-4 text-xl sm:text-2xl font-bold text-white"
         >
           Super Amazing Promo Subtitle
         </h2>
         <a
           target="_"
           :href="'#'"
-          class="mt-8 ml-6 bg-orange-500 text-black font-bold py-2 px-2 rounded"
+          class="mt-8  bg-orange-500 text-black font-bold py-2 px-2 rounded"
           >Learn More!</a
         >
       </div>

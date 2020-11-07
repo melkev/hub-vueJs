@@ -1,75 +1,76 @@
 <template>
-  <section class="hero is-success is-fullheight">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <div class="column is-4 is-offset-4">
-          <h3 class="title has-text-grey">Login</h3>
-          <p class="subtitle has-text-grey">Please login to proceed.</p>
-          <div class="box">
-            <figure class="avatar">
-              <img src="https://via.placeholder.com/300" />
-            </figure>
-            <form>
-              <div class="field">
-                <div class="control">
-                  <input
-                    v-model="form.email"
-                    @blur="$v.form.email.$touch()"
-                    class="input is-large"
-                    type="email"
-                    placeholder="Your Email"
-                    autofocus=""
-                    autocomplete="email"
-                  />
-                  <div v-if="$v.form.email.$error" class="form-error">
-                    <span v-if="!$v.form.email.required" class="help is-danger"
-                      >Email is required</span
-                    >
-                    <span
-                      v-if="!$v.form.email.emailValidator"
-                      class="help is-danger"
-                      >Email address is not valid</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input
-                    v-model="form.password"
-                    @blur="$v.form.password.$touch()"
-                    class="input is-large"
-                    type="password"
-                    placeholder="Your Password"
-                    autocomplete="current-password"
-                  />
-                  <div v-if="$v.form.password.$error" class="form-error">
-                    <span
-                      v-if="!$v.form.password.required"
-                      class="help is-danger"
-                      >Password is required</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- Login Button -->
-              <button
-                @click.prevent="login"
-                :disabled="$v.form.$invalid"
-                class="button is-block is-info is-large is-fullwidth"
-              >
-                Login
-              </button>
-            </form>
+  <section class="container w-full ">
+    <div class="w-11/12 max-w-xs mx-auto mt-10">
+      <div class="text-center mb-2">
+        <h2 class="font-bold text-xl leading-tight text-gray-700">Sign In</h2>
+      </div>
+      <form class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-10 mb-4">
+        <div class="mb-2 sm:mb-4">
+          <label
+            class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+            for="email"
+          >
+            Username
+          </label>
+          <input
+            v-model="form.email"
+            @blur="$v.form.email.$touch()"
+            class="appearance-none block w-full bg-gray-200 text-gray-800 border border-gray-500 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white"
+            id="email"
+            type="email"
+            placeholder="your email"
+            autofocus=""
+            autocomplete="email"
+          />
+          <div
+            v-if="$v.form.email.$error"
+            class="ml-2 text-red-500 text-xs italic"
+          >
+            <span v-if="!$v.form.email.required">Email is required</span>
+            <span v-if="!$v.form.email.emailValidator"
+              >Email address is not valid</span
+            >
           </div>
+        </div>
+        <div class="mb-2 sm:mb-4">
+          <label
+            class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            v-model="form.password"
+            @blur="$v.form.password.$touch()"
+            class="appearance-none block w-full bg-gray-200 text-gray-800 border border-gray-500 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white"
+            id="password"
+            type="password"
+            placeholder="******************"
+          />
+          <div
+            v-if="$v.form.password.$error"
+            class="ml-2 text-red-500 text-xs italic"
+          >
+            <span v-if="!$v.form.password.required">Password is required</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-8">
+          <button
+            @click.prevent="login"
+            :disabled="$v.form.$invalid"
+            :class="$v.form.$invalid ? 'cursor-not-allowed' : 'cursor-pointer'"
+            class="bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm sm:text-base border-4 text-white py-1 px-2 rounded "
+          >
+            Sign In
+          </button>
           <p class="has-text-grey">
-            <a>Sign In With Google</a> &nbsp;·&nbsp;
-            <nuxt-link to="/register">Sign Up</nuxt-link> &nbsp;·&nbsp;
-
             <a href="../">Need Help?</a>
           </p>
         </div>
-      </div>
+      </form>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2020 Acme Corp. All rights reserved.
+      </p>
     </div>
   </section>
 </template>
@@ -78,7 +79,7 @@
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
-  middleware: 'guest',
+  middleware: "guest",
   data() {
     return {
       form: {
@@ -121,33 +122,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.hero.is-success {
-  background: #f2f6fa;
-}
-.hero .nav,
-.hero.is-success .nav {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.box {
-  margin-top: 5rem;
-}
-.avatar {
-  margin-top: -70px;
-  padding-bottom: 20px;
-}
-.avatar img {
-  height: 128px;
-  width: 128px;
-  padding: 5px;
-  background: #fff;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
-    0 0 0 1px rgba(10, 10, 10, 0.1);
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-}
-p.subtitle {
-  padding-top: 1rem;
-}
-</style>
+<style scoped></style>

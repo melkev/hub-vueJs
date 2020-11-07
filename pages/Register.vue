@@ -1,8 +1,11 @@
 <template>
-  <div class="w-11/12 sm:w-full max-w-2xl mx-auto mt-5">
+  <section class="w-11/12 sm:w-full max-w-2xl mx-auto mt-5">
+    <div class="text-center mb-2">
+      <h2 class="font-bold text-xl leading-tight text-gray-700">Sign up</h2>
+    </div>
     <form class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-20 mb-4">
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex flex-wrap -mx-3 mb-2 sm:mb-4">
+        <div class="w-full md:w-1/2 px-3 mb-2 sm:mb-4 md:mb-0">
           <label
             class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
             for="grid-first-name"
@@ -55,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="flex flex-wrap -mx-3 mb-2 sm:mb-4">
         <div class="w-full px-3">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -82,7 +85,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="flex flex-wrap -mx-3 mb-2 sm:mb-4">
         <div class="w-full px-3">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -113,7 +116,7 @@
         </div>
       </div>
       <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <div class="w-full md:w-1/2 px-3 mb-2 sm:mb-4 md:mb-0">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="password"
@@ -172,7 +175,7 @@
       </div>
       <button
         @click.prevent="register"
-        :disabled="$v.form.$invalid"
+        :class="$v.form.$invalid ? 'cursor-not-allowed'  : 'cursor-pointer'"
         type="submit"
         class="float-right bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
       >
@@ -184,7 +187,7 @@
       <a class="mx-4">Sign Up With Google</a> &nbsp;·&nbsp;
       <a href="../">Need Help?</a>
     </p>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -193,7 +196,7 @@ import {
   email,
   minLength,
   url,
-  sameAs,
+  sameAs
 } from "vuelidate/lib/validators";
 import { supportedFiledType } from "@/helpers/validators";
 export default {
@@ -205,42 +208,42 @@ export default {
         name: null,
         avatar: null,
         password: null,
-        passwordConfirmation: null,
-      },
+        passwordConfirmation: null
+      }
     };
   },
   validations: {
     form: {
       username: {
         required,
-        minLength: minLength(6),
+        minLength: minLength(6)
       },
       name: {
         required,
-        minLength: minLength(6),
+        minLength: minLength(6)
       },
       email: {
         required,
-        emailValidator: email,
+        emailValidator: email
       },
       avatar: {
         url,
-        supportedFiledType,
+        supportedFiledType
       },
       password: {
         required,
-        minLength: minLength(6),
+        minLength: minLength(6)
       },
       passwordConfirmation: {
         required,
-        sameAsPassword: sameAs("password"),
-      },
-    },
+        sameAsPassword: sameAs("password")
+      }
+    }
   },
   computed: {
     isFormValid() {
       return !this.$v.form.$invalid;
-    },
+    }
   },
   methods: {
     /**
@@ -252,15 +255,15 @@ export default {
         this.$store
           .dispatch("auth/register", this.form)
           .then(() => this.$router.push("/login"))
-          .catch((err) =>
+          .catch(err =>
             this.$toasted.error(
               " Uuuups , unexpected issue please try to regiter again",
               { duration: 3000 }
             )
           );
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
