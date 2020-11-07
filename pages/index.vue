@@ -10,7 +10,7 @@
         <div
           v-for="course in courses"
           :key="course._id"
-          class="column is-one-quarter"
+          class=""
         >
           <!--  pass a course as a prop to courese card -->
           <course-card :course="course" />

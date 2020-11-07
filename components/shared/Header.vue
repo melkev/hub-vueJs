@@ -7,19 +7,21 @@
     <div class="full-page-takeover-header-text">
       {{ title }}
     </div>
-    <div class="user-box">
-      <figure class="avatar image is-32x32 m-r-sm">
-        <img class="is-rounded" :src="user.avatar" />
-      </figure>
-      <div class="m-r-sm m-b-sm">Welcome {{ user.username }}!</div>
-    </div>
+    <div class="hidden lg:flex items-center justify-center lg:mr-20">
+            <figure class="w-6 sm:w-8">
+              <img class=" hidden lg:block rounded-2xl" :src="user.avatar" />
+            </figure>
+            <div class=" px-2 py-1 text-gray-800 font-semibold rounded text-xl ">
+              Welcome {{ user.username }}
+            </div>
+          </div>
     <slot name="actionMenu"></slot>
     <div v-if="exitLink" class="full-page-takeover-header-button">
       <div class="buttons" >
 
       <nuxt-link
         :to="exitLink"
-        class="button is-danger is-inverted is-outlined"
+        class="bg-gray-100  text-center text-xl  px-4 py-1 rounded-xl font-semibold shadow-xl text-gray-800 hover:bg-gray-500  mt-4 sm:w-20 sm:ml-3 sm:mt-0 mr-10"
       >
         Exit
       </nuxt-link>
