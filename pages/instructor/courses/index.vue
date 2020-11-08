@@ -3,7 +3,7 @@
     <instructor-header title="Create your courses">
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
-          <div class="flex justify-around items-center md:ml-10  ">
+          <div class="flex justify-b items-center md:ml-10  ">
             <nuxt-link
               to="/instructor/course/create"
               class=" bg-teal-500 hover:bg-teal-700  text-center text-sm  px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-2  sm:ml-3 sm:mt-0"

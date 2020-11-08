@@ -1,5 +1,5 @@
 <template>
-  <section class="container w-full ">
+  <section class=" w-full ">
     <div class="w-11/12 max-w-xs mx-auto mt-10">
       <div class="text-center mb-2">
         <h2 class="font-bold text-xl leading-tight text-gray-700">Sign In</h2>

@@ -9,7 +9,7 @@
         ></div>
       </div>
       <div class="course-create full-page-takeover-container">
-        <div class="container">
+        <div class="w-full ">
           <!-- Primarily used to preserve component state or avoid re-rendering -->
           <keep-alive>
             <component
