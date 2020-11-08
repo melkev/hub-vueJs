@@ -1,23 +1,23 @@
 <template>
-  <div class="instructor-page">
+  <div class="instructor-page ">
     <head-er title="choose your admin page" exitLink="/" />
-    <div class="centered">
-      <div class="flex">
+    <div class="centered mt-10 sm:mt-32">
+      <div class="flex flex-col sm:flex-row w-full p-5 justify-center items-center">
         <!-- Go to /instructor/courses -->
-        <div class="box" @click="() => $router.push('/instructor/courses')">
-          <div>
+        <div class="w-full  flex items-center justify-center bg-gray-200 hover:bg-purple-700 h-48 mb-4 sm:mx-10  text-gray-700 hover:text-gray-400 rounded shadow-xl cursor-pointer" @click="() => $router.push('/instructor/courses')">
+          <div class="text-xl font-bold  ">
             Courses
           </div>
         </div>
         <!-- Go to /instructor/blogs -->
-        <div class="box" @click="() => {}">
-          <div>
+        <div class="w-full flex items-center justify-center bg-gray-200 hover:bg-purple-700  h-48 mb-4 sm:mx-10 text-gray-700 hover:text-gray-400 rounded shadow-xl cursor-pointer" @click="() => {}">
+          <div class="text-xl font-bold  ">
             Blogs
           </div>
         </div>
         <!-- Go to /instructor/heroes -->
-        <div class="box" @click="() => {}">
-          <div>
+        <div class="w-full flex items-center justify-center bg-gray-200 hover:bg-purple-700 h-48 mb-4 sm:mx-10 text-gray-700 hover:text-gray-400 rounded shadow-xl cursor-pointer" @click="() => {}">
+          <div class="text-xl font-bold  ">
             Heroes
           </div>
         </div>
@@ -38,29 +38,12 @@ export default {
 <style scoped lang="scss">
 .instructor-page {
   .centered {
-    margin-top: 100px;
+   
     display: flex;
     flex-direction: row; /* make main axis horizontal (default setting) */
     justify-content: center; /* center items horizontally, in this case */
     align-items: center; /* center items vertically, in this case */
   }
 }
-.box {
-  height: 300px;
-  width: 300px;
-  display: flex;
-  margin: 5px;
-  justify-content: center;
-  &:hover {
-    cursor: pointer;
-    background-color: #58529f;
-    color: white;
-    transition: background-color 0.3s ease-out;
-  }
-  > div {
-    align-self: center;
-    font-size: 50px;
-    font-weight: bold;
-  }
-}
+
 </style>

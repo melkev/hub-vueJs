@@ -29,7 +29,7 @@
               </div>
               <div v-else class="empty-container"></div>
             </div>
-            <div class="full-page-footer-col">
+            <div class="table-footer-group">
               <div>
                 <button
                   v-if="!isLastStep"

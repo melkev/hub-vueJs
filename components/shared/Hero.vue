@@ -7,7 +7,7 @@
           background: `url(https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945_1280.jpg) no-repeat center center`
         }"
       ></div>
-      <div class="container  z-10 flex-col pb-8 ml-6 sm:ml-20">
+      <div class="container  z-10 flex-col pb-8 px-3 sm:ml-20">
         <h1
           class="  pt-16 sm:pt-20 text-2xl sm:text-4xl font-bold text-white"
         >

@@ -80,13 +80,13 @@
           <!-- If Admin -->
           <button
             v-if="isAdmin"
-            class=" bg-teal-500 hover:bg-teal-700  text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-4 sm:w-20 sm:ml-3 sm:mt-0"
+            class=" bg-teal-500 hover:bg-teal-700  text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-2 sm:w-20 sm:ml-3 sm:mt-0"
             @click="() => $router.push('/instructor')"
           >
             Instructor
           </button>
           <a
-            class=" bg-teal-500 hover:bg-teal-700  text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-4 sm:w-20 sm:ml-3 sm:mt-0"
+            class=" bg-teal-500 hover:bg-teal-700  text-center text-sm px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800   mt-2 sm:w-20 sm:ml-3 sm:mt-0"
             @click="logout"
           >
             Logout

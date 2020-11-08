@@ -5,53 +5,32 @@
 The components directory contains your Vue.js Components.
 
 _Nuxt.js doesn't supercharge these components._
-    <div class="courses-page">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-8 is-offset-2">
-            <h1 class="courses-page-title">Your Courses</h1>
-            <!-- Iterate Courses -->
-            <div
-              v-for="course in courses"
-              :key="course._id"
-              class="tile is-ancestor"
-            >
-              <div class="tile is-parent is-12">
-                <!-- Navigate to course manage page -->
-                <nuxt-link
-                  :to="'#'"
-                  class="tile tile-overlay-container is-child box"
-                >
-                  <div class="tile-overlay">
-                    <span class="tile-overlay-text"> Update Course </span>
-                  </div>
-                  <div class="columns">
-                    <div class="column is-narrow">
-                      <figure class="image is-4by2 is-128x128">
-                        <img
-                          :src="
-                            'https://i.udemycdn.com/course/750x422/2381802_d90c_3.jpg'
-                          "
-                        />
-                      </figure>
-                    </div>
-                    <div class="column">
-                      <p class="title">
-                        {{ course.title }}
-                      </p>
-                      <p class="subtitle">
-                        {{ course.subtitle }}
-                      </p>
-                      <span class="tag" :class="'is-success'"> {{ course.status }}  </span>
-                    </div>
-                    <div class="column is-narrow flex-centered">
-                      <div class="price-title">{{ course.price || 0 }} $</div>
-                    </div>
-                  </div>
-                </nuxt-link>
-              </div>
+  <div class="full-page-takeover-header">
+    <div class="full-page-takeover-header-logo">
+      <p class="full-page-takeover-header-logo text-xl">Pearl Hub Admin</p>
+    </div>
+    <div class="full-page-takeover-header-divider"></div>
+    <div class="hidden sm:block full-page-takeover-header-text  ">
+      {{ title }}
+    </div>
+    <div class="hidden lg:flex items-center justify-center ">
+            <figure class="w-6 sm:w-8">
+              <img class=" hidden lg:block rounded-2xl" :src="user.avatar" />
+            </figure>
+            <div class=" px-2 py-1 text-white font-semibold rounded text-xl ">
+              Welcome {{ user.username }}
             </div>
           </div>
-        </div>
+    <slot name="actionMenu"></slot>
+    <div v-if="exitLink" class="full-page-takeover-header-button">
+      <div class="flex justify-around items-center mr-5 md:ml-16 lg:ml-24 " >
+
+      <nuxt-link
+        :to="exitLink"
+          class=" bg-teal-500 hover:bg-teal-700  text-center text-base  px-2 py-1 rounded-xl font-semibold shadow-xl text-gray-800    sm:w-20 sm:ml-3 sm:mt-2"
+      >
+        Exit
+      </nuxt-link>
       </div>
     </div>
+  </div>
